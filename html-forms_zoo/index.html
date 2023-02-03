@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <title>HTML Zoo Form</title>
+    <link rel="stylesheet" href="./css/styles.css" />
+  </head>
+  <body>
+    <section aria-label="contact">
+      <h2 id="form-heading">Zoo Visitor Sign Up</h2>
+      <p id="form-description">
+        Please provide all necessary information on your stay with us.
+      </p>
+
+      <form aria-labelledby="form-heading" aria-describedby="form-description">
+        <fieldset>
+          <legend>Enter your information</legend>
+
+          <!-- Email: label & input -->
+          <label for="email">Email:</label>
+          <input type="email" name="email" id="email" />
+
+          <!-- Date: label & input -->
+          <label for="date">Date:</label>
+          <input type="date" name="date" id="date" />
+
+          <!-- Radio Buttons: labels & inputs -->
+          <fieldset class="radio-options">
+            <legend>Which one of these animals would you like to visit?</legend>
+            <input
+              value="sloth"
+              type="radio"
+              name="AniamlToVisit"
+              id="sloths"
+            />
+            <label for="sloth">relaxed sloths</label>
+            <input
+              value="kangaroo"
+              type="radio"
+              name="AniamlToVisit"
+              id="kangaroos"
+            />
+            <label for="kangaroos">Jumpy Kangaroos</label>
+            <input
+              value="racoon"
+              type="radio"
+              name="AniamlToVisit"
+              id="racoons"
+            />
+            <label for="racoons">Thieving racoons</label>
+          </fieldset>
+
+          <!-- Textarea: label & input -->
+          <label for="concerns"
+            >Please let us know if you have any concerns:</label
+          >
+          <textarea name="concerns" id="concerns"></textarea>
+
+          <!-- Two Checkboxes: labels & inputs -->
+          <label for="newsletter">sign up for the newsletter</label>
+          <input type="checkbox" name="newsletter" id="newsletter" />
+          <label for="consent"
+            >by checking this box you agree to data processing</label
+          >
+          <input required type="checkbox" name="consent" id="consent" />
+          <br />
+          <!-- Two Buttons: reset & submit -->
+          <button type="submit">Submit</button>
+          <button type="reset">Reset Form</button>
+        </fieldset>
+      </form>
+    </section>
+  </body>
+</html>
