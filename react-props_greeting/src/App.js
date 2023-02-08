@@ -5,12 +5,9 @@ export default function App() {
 }
 
 const Greeting = ({ name }) => {
-
-
   return (
     <>
-      <h1>{name === 'jan' ? 'hello coach' : name}</h1>
-
+      <h1>Hello{name === 'jan' ? ' coach' : name}</h1>
     </>
   )
 }
