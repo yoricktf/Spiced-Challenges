@@ -3,8 +3,12 @@ import avatar from "../img/avatar.jpg";
 
 export const Avatar = () => {
   return (
-    <a href="#">
+    <button
+      type="button"
+      onClick={() => console.log("I could toggle a profile!")}
+      aria-label="toggle profile"
+    >
       <Image src={avatar} alt='profile picture' />
-    </a>
+    </button>
   )
 };
