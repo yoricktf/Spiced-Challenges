@@ -10,11 +10,10 @@ export default function App() {
     longitude: 0.00000000,
     latitude: 0.00000000,
   });
-  const [timer, setTimer] = useState(0)
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setTimer(time => time + 1)
+      getISSCoords()
     }, 5000);
 
     return () => {
@@ -22,22 +21,12 @@ export default function App() {
     }
   }, [])
 
+  async function getISSCoords() {
+    const data = await fetch(URL)
+    const dataObject = await data.json()
 
-  useEffect(() => {
-    async function getISSCoords() {
-      const data = await fetch(URL)
-      const dataObject = await data.json()
-
-      setCoords({ longitude: dataObject.longitude, latitude: dataObject.latitude })
-    }
-
-    getISSCoords()
-
-  }, [timer])
-
-
-
-
+    setCoords(dataObject)
+  }
 
   return (
     <main>
@@ -45,7 +34,7 @@ export default function App() {
       <Controls
         longitude={coords.longitude}
         latitude={coords.latitude}
-      // onRefresh={getISSCoords}
+        onRefresh={getISSCoords}
       />
     </main>
   );
