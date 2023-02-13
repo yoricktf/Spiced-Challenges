@@ -32,7 +32,7 @@ export default function StatusCheck() {
       data.status === 'Ok' ? setStatusIcon('✅') : setStatusIcon('❌')
     } catch (error) {
       console.log(error)
-      error ? setStatusIcon('🚨') : ''
+      setStatusIcon('🚨')
     }
     // --^-- write your code here --^--
   }
