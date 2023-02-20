@@ -1,4 +1,12 @@
-/* import lora from '' */
+import { createGlobalStyle } from "styled-components";
+import { Lora } from "@next/font/google";
+
+const lora = Lora({
+  subsets: ["latin"],
+  style: ["normal", "italic"],
+});
+
+export const GlobalStyle = createGlobalStyle`
 
 :root {
   /* Color styles */
@@ -7,9 +15,7 @@
   --color-smoke: #d4d1cd;
 
   /* Font styles */
-  /* --font-family: ${lora.style.fontFamily}, serif;; */
-  --font-family: serif;
-
+  --font-family: ${lora.style.fontFamily}, serif;
   /*
     use like:
     font: var(--font-body);
@@ -34,3 +40,15 @@
     0 8px 7px -4px rgba(0, 0, 0, 0.09), 0 17px 11px -8px rgba(0, 0, 0, 0.09),
     0 24px 15px -12px rgba(0, 0, 0, 0.09), 0 4px 15px 0 rgba(0, 0, 0, 0.05);
 }
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: var(--font-family);
+    margin: 0;
+  }
+`;
