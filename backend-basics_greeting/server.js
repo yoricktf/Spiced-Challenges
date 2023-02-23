@@ -1,5 +1,5 @@
 import { createServer } from "node:http";
 
 export const server = createServer((req, res) => {
-  res.end("Hello Yoz")
+  res.end("Hello, Yoz")
 })
