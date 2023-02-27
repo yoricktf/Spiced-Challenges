@@ -1,6 +1,5 @@
 import useSWR from 'swr'
 
-
 export default function ProductsPage() {
   const { data, error, isLoading } = useSWR('/api/products')
 
