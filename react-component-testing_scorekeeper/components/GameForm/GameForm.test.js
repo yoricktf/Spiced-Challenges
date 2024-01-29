@@ -8,10 +8,49 @@ jest.mock("next/router", () => ({
   },
 }));
 
-test("renders two input fields and a button", () => {});
+test("renders two input fields and a button", () => {
+  render(<GameForm />);
 
-test("renders a form with the accessible name 'Create a new game'", () => {});
+  const inputFields = screen.getAllByRole("textbox");
+  const button = screen.getByRole("button");
 
-test("submits the correct form data when every field is filled out", async () => {});
+  expect(inputFields.length).toBe(2);
+  expect(button).toBeInTheDocument();
+});
 
-test("does not submit form if one input field is left empty", async () => {});
+test("renders a form with the accessible name 'Create a new game'", () => {
+  render(<GameForm />);
+
+  const form = screen.getByRole("form");
+
+  expect(form).toHaveAccessibleName(/create a new game/i);
+});
+
+test("submits the correct form data when every field is filled out", async () => {
+  render(<GameForm />);
+
+  const inputFields = screen.getAllByRole("textbox");
+  const button = screen.getByRole("button");
+
+  await userEvent.type(inputFields[0], "Dodelido");
+  await userEvent.type(inputFields[1], "John");
+
+  await userEvent.click(button);
+
+  expect(inputFields[0]).toHaveValue("Dodelido");
+  expect(inputFields[1]).toHaveValue("John");
+});
+
+test("does not submit form if one input field is left empty", async () => {
+  render(<GameForm />);
+
+  const inputFields = screen.getAllByRole("textbox");
+  const button = screen.getByRole("button");
+
+  await userEvent.type(inputFields[0], "Dodelido");
+
+  await userEvent.click(button);
+
+  expect(inputFields[0]).toHaveValue("Dodelido");
+  expect(inputFields[1]).toHaveValue("");
+});
